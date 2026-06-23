@@ -1,0 +1,74 @@
+:root{
+    --d100: 8, 8, 8;
+    --d200: 18, 18, 18;
+
+    --l100: 240, 240, 240;
+    --l200: 160, 160, 160;
+
+    --acc: 0, 255, 140;
+}
+*{
+    padding: 0; margin: 0;
+    box-sizing: border-box;
+
+    pointer-events: all;
+}
+body{
+    max-height: 100vh;
+
+    display: flex;
+    justify-content: center; align-items: center;
+
+    color: rgb(var(--l100));
+    background-color: black;
+
+    cursor: default;
+    font-weight: 300;
+    line-height: 1;
+}
+
+p{
+    font-family: monospace;
+    font-weight: 100;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: "GeneralSans-Variable";
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+
+/* font */
+
+@font-face {
+  font-family: 'GeneralSans-Variable';
+  src: url('./fonts/GeneralSans-Variable.woff2') format('woff2'),
+       url('./fonts/GeneralSans-Variable.woff') format('woff'),
+       url('./fonts/GeneralSans-Variable.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GeneralSans-VariableItalic';
+  src: url('./fonts/GeneralSans-VariableItalic.woff2') format('woff2'),
+       url('./fonts/GeneralSans-VariableItalic.woff') format('woff'),
+       url('./fonts/GeneralSans-VariableItalic.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: italic;
+}
+
+/*  */
+
+
+.light{
+    color: rgb(var(--l200));
+}
+.important{
+    color: rgb(var(--acc))
+}
