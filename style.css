@@ -10,7 +10,6 @@
 *{
     padding: 0; margin: 0;
     box-sizing: border-box;
-
     pointer-events: all;
 }
 body{
@@ -22,18 +21,11 @@ body{
     color: rgb(var(--l100));
     background-color: black;
 
-    cursor: default;
-    font-weight: 300;
+    font-family: monospace;
+    font-weight: 100;
     line-height: 1;
 }
 
-p{
-    font-family: monospace;
-    font-weight: 100;
-}
-h1,h2,h3,h4,h5,h6{
-    font-family: "GeneralSans-Variable";
-}
 a{
     text-decoration: none;
 }
@@ -70,5 +62,5 @@ li{
     color: rgb(var(--l200));
 }
 .important{
-    color: rgb(var(--acc))
+    color: rgb(var(--acc));
 }
