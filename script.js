@@ -90,3 +90,93 @@ window.addEventListener("blur", () => {
 });
 
 animate();
+
+// 
+
+const proj = document.getElementById("proj");
+const projectsArray = {
+    "1": {
+        "name": "chroma",
+        "desc": "Générateur de fond d'écran dynamique.",
+        "link": "https://github.com/REMZAAAA/Chroma",
+    },
+    "2": {
+        "name": "sae",
+        "desc": "Développement d'un site web sur une controverse autour de l'IA et des Big Data.",
+        "link": "https://github.com/REMZAAAA/sae",
+    },
+    "3": {
+        "name": "mam",
+        "desc": "Développement d'un site web pour une association avec Vite et Three.js",
+        "link": "https://github.com/REMZAAAA/mam",
+    },
+    "4": {
+        "name": "plancton",
+        "desc": "Creation d'un planning pour étudiant avec Python (Flask)",
+        "link": "https://github.com/REMZAAAA/plancton",
+    }
+}
+const projName = proj.querySelector("div:nth-of-type(1)>h1");
+const projDesc = proj.querySelector("div:nth-of-type(1)>p:nth-of-type(2)");
+const projLink = proj.querySelector("div:nth-of-type(1)>a");
+const projImg = proj.querySelector("div:nth-of-type(2)>img");
+
+const projPrevBtn = proj.querySelector("#projPrevBtn");
+const projNextBtn = proj.querySelector("#projNextBtn");
+
+let currProj = 1
+disableBtn(projPrevBtn);
+
+function updateProj(newName, newDesc, newLink){
+    projName.innerHTML = newName;
+    projDesc.innerHTML = newDesc;
+    projLink.setAttribute("href", newLink);
+    projImg.setAttribute("src", `./img/${newName}.png`)
+}
+
+function disableBtn(btn){
+    btn.disabled = true;
+}
+
+function enableBtn(btn){
+    btn.disabled = false;
+}
+
+console.log(currProj);
+console.log(Object.keys(projectsArray).length);
+
+projPrevBtn.addEventListener("click", () => {
+    if (currProj == 1) return;
+    if (currProj == 2){
+        disableBtn(projPrevBtn);
+    } else {
+        enableBtn(projNextBtn);
+    }
+
+    currProj -= 1;
+
+    const newName = projectsArray[currProj]["name"];
+    const newDesc = projectsArray[currProj]["desc"];
+    const newLink = projectsArray[currProj]["link"];
+
+    updateProj(newName, newDesc, newLink);
+
+});
+
+projNextBtn.addEventListener("click", () => {
+    if (currProj == Object.keys(projectsArray).length) return;
+    if (currProj == Object.keys(projectsArray).length - 1) {
+        disableBtn(projNextBtn);
+    } else {
+        enableBtn(projPrevBtn);
+    }
+
+    currProj += 1;
+
+    const newName = projectsArray[currProj]["name"];
+    const newDesc = projectsArray[currProj]["desc"];
+    const newLink = projectsArray[currProj]["link"];
+
+    updateProj(newName, newDesc, newLink);
+
+});
